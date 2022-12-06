@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "orion",
+  "risk": "3",
+  "title": "Attacker can mint nfts without paying any ether",
+  "issueId": 3,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/3"
+}
