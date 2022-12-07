@@ -8,3 +8,8 @@ The struct Sale in FixedPrice.sol should come before the declaration of the stat
 # SetFeeReceiver( ) in Factor Contracts can be made External
 
 SetFeeReceiver( ) in FixedPriceFactory.sol, LPDAFactory.sol, and OpenEditionFactory.sol is never called internally.  Therefore, the function can be made external
+
+# Open Editions cannot be sold for more than 4722 ether 
+
+OpenEdition.sol has a struct Sale, that contains $\2^72 for its member variable, price.  $\2^72 wei is roughly 4722 ether, meaning that this is the max limit that Open Edition NFTs can be sold for
+
