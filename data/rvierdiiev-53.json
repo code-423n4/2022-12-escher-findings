@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "OpenEditionFactory should not create OpenEdition if sale.currentId == uin24.max",
+  "issueId": 53,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/53"
+}
