@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "chaduke",
+  "risk": "3",
+  "title": "No Zero amount check for the buy function",
+  "issueId": 79,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/79"
+}
