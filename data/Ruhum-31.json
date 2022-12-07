@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Ruhum",
+  "risk": "2",
+  "title": "Bad configuration in LDPA can cause funds to be locked up",
+  "issueId": 31,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/31"
+}
