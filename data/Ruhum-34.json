@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Ruhum",
+  "risk": "2",
+  "title": "Selfdestruct is prone to being changed in a future hard fork",
+  "issueId": 34,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/34"
+}
