@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "obront",
+  "risk": "2",
+  "title": "Selfdestruct may be phased out, shouldn't be used for transfers",
+  "issueId": 92,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/92"
+}
