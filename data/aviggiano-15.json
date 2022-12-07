@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "aviggiano",
+  "risk": "2",
+  "title": "`FixedPrice._end` use `transfer` to send Ether, which assumes gas costs are constant",
+  "issueId": 15,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/15"
+}
