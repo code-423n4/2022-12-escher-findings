@@ -26,3 +26,17 @@ amount zero check needs to be performed
 QA8: https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/OpenEditionFactory.sol#L29
 A zero address check needs to be performed for ``sale.saleReceiver``, otherwise owernship of the ``FixedPrice" contract will be transferred to a zero address owner and also, when a sale close, all money will be lost to the zero address.
 
+QA9: https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L99
+To avoid multiple refund transactions by the same user, it might be better to allow refund only after a sale ends.
+```
+function refund() public {
+        require(block.timestamp > sale.endTime, "TOO early");
+
+        Receipt memory r = receipts[msg.sender];
+        uint80 price = uint80(getPrice()) * r.amount;
+        uint80 owed = r.balance - price;
+        require(owed > 0, "NOTHING TO REFUND");
+        receipts[msg.sender].balance = price;
+        payable(msg.sender).transfer(owed);
+    }
+```
