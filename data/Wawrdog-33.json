@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Wawrdog",
+  "risk": "2",
+  "title": "transfer() is no longer recommended method for transferring ether",
+  "issueId": 33,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/33"
+}
