@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "fatherOfBlocks",
+  "risk": "2",
+  "title": "USE A SAFE TRANSFER HELPER LIBRARY FOR ERC20 TRANSFERS",
+  "issueId": 22,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/22"
+}
