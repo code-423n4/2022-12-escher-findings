@@ -1,0 +1,2 @@
+Zero-address checks as input validation on address parameters is always a best practice. This is especially true for critical addresses that are immutable and set in the constructor because they cannot be changed later. Indeed, constructors should check the address written in an immutable address variable is not the zero address:
+_escher in line 18, Escher721Factory.sol needs to have a zero address check. 
