@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "chaduke",
+  "risk": "3",
+  "title": "An attacker might front run the initialize transaction and claim the ownership of the contract",
+  "issueId": 27,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/27"
+}
