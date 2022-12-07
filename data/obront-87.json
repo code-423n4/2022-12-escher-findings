@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "obront",
+  "risk": "2",
+  "title": "No zero address checks on saleReceivers for Fixed or Open Editions",
+  "issueId": 87,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/87"
+}
