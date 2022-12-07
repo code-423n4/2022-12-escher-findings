@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "HollaDieWaldfee",
+  "risk": "2",
+  "title": "call() should be used instead of transfer()",
+  "issueId": 71,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/71"
+}
