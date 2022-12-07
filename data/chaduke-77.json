@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "chaduke",
+  "risk": "3",
+  "title": "Wrong comparison to the sale.endTime",
+  "issueId": 77,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/77"
+}
