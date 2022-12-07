@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "rvierdiiev",
+  "risk": "2",
+  "title": "If FixedPrice.buy will be called with 0 amount then wrong event will be fired",
+  "issueId": 45,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/45"
+}
