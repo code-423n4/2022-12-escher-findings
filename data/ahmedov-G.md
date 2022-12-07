@@ -73,17 +73,30 @@ Saves
 test_Buy() (gas: -63 (-0.017%))
 ```
 
+# [G-03] X = X + Y IS MORE EFFICIENT, THAN X += Y (3 INSTANCES)
+
+main/src/minters/LPDA.sol: [66](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L66), [70](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L66), [71](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L71)
+
+```diff
+-        amountSold += amount;
++        amountSold = amountSold + amount;
+         uint48 newId = amount + temp.currentId;
+         require(newId <= temp.finalId, "TOO MANY");
+ 
+-        receipts[msg.sender].amount += amount;
+-        receipts[msg.sender].balance += uint80(msg.value);
++        receipts[msg.sender].amount = receipts[msg.sender].amount + amount;
++        receipts[msg.sender].balance = receipts[msg.sender].balance + uint80(msg.value);
+```
+
+Saves
+
+```
+test_Buy() (gas: -210 (-0.072%))
+```
+
 Results:
 ```
-test_RevertsWhenAlreadyRefunded_Refund() (gas: -63 (-0.016%)) 
-test_Refund() (gas: -63 (-0.016%)) 
-test_WhenNotOver_Refund() (gas: -63 (-0.016%)) 
-test_RevertsWhenTooSoon_Buy() (gas: -63 (-0.016%)) 
-test_RevertsWhenNoRefund_Refund() (gas: -63 (-0.016%)) 
-test_RevertsWhenTooLittleValue_Buy() (gas: -63 (-0.016%)) 
-test_RevertsWhenTooLate_Cancel() (gas: -63 (-0.016%)) 
-test_RevertsWhenNotOwner_Cancel() (gas: -63 (-0.016%)) 
-test_Buy() (gas: -63 (-0.017%)) 
 test_WhenEnded_Finalize() (gas: -82 (-0.023%)) 
 test_RevertsWhenTooSoon_Buy() (gas: -82 (-0.026%)) 
 test_RevertsWhenEnded_Buy() (gas: -82 (-0.026%)) 
@@ -103,11 +116,22 @@ test_RevertsWhenNotOwner_Cancel() (gas: -82 (-0.027%))
 test_Buy() (gas: -82 (-0.027%)) 
 test_Buy() (gas: -82 (-0.027%)) 
 test_SetSeedBase() (gas: -10 (-0.030%)) 
-test_LPDA() (gas: -630 (-0.090%)) 
-test_RevertsWhenSoldOut_Buy() (gas: -630 (-0.090%)) 
-test_RevertsWhenEnded_Buy() (gas: -630 (-0.092%)) 
-test_SellsOut_Buy() (gas: -630 (-0.092%)) 
+test_RevertsWhenAlreadyRefunded_Refund() (gas: -273 (-0.069%)) 
+test_Refund() (gas: -273 (-0.069%)) 
+test_WhenNotOver_Refund() (gas: -273 (-0.069%)) 
+test_RevertsWhenTooSoon_Buy() (gas: -273 (-0.069%)) 
+test_RevertsWhenNoRefund_Refund() (gas: -273 (-0.070%)) 
+test_RevertsWhenTooLittleValue_Buy() (gas: -273 (-0.070%)) 
+test_RevertsWhenTooLate_Cancel() (gas: -273 (-0.071%)) 
+test_RevertsWhenNotOwner_Cancel() (gas: -273 (-0.071%)) 
+test_Buy() (gas: -273 (-0.072%)) 
 test_RevertsWhenMintedOut_Buy() (gas: -820 (-0.133%)) 
 test_WhenMintsOut_Buy() (gas: -820 (-0.135%)) 
-Overall gas change: -6213 (-1.281%)
+test_LPDA() (gas: -1050 (-0.150%)) 
+test_RevertsWhenEnded_Buy() (gas: -1050 (-0.153%)) 
+test_SellsOut_Buy() (gas: -1050 (-0.153%)) 
+test_RevertsWhenSoldOut_Buy() (gas: -1092 (-0.157%)) 
+```
+```
+Overall gas change: -9825 (-2.015%)
 ```
