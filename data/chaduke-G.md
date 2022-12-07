@@ -25,3 +25,7 @@ changing the two statements to the following to save gas:
         receipts[msg.sender].amount = receipts[msg.sender].amount +amount;
         receipts[msg.sender].balance =receipts[msg.sender].balance + uint80(msg.value);
 ```
+
+G8. https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L146
+Simpying using ``emit End(sale);`` instead of ``end()`` will save gas.
+
