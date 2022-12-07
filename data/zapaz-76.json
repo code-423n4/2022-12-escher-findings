@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "zapaz",
+  "risk": "3",
+  "title": "Transfer function may revert and may stuck all funds in smartcontract",
+  "issueId": 76,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/76"
+}
