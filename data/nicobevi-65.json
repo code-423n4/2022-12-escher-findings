@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "nicobevi",
+  "risk": "3",
+  "title": "`fees` could be `address(0)` on `setFeeReceiver` resulting on ether lost ",
+  "issueId": 65,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/65"
+}
