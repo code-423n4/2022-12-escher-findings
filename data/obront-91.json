@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "obront",
+  "risk": "3",
+  "title": "saleReceiver with logic in receive() or fallback() function will lead to funds permanently stuck in LPDA contract",
+  "issueId": 91,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/91"
+}
