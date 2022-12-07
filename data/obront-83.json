@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "obront",
+  "risk": "3",
+  "title": "FixedPrice sale can lock all funds from creator if it doesn't sell out",
+  "issueId": 83,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/83"
+}
