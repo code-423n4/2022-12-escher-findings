@@ -15,3 +15,8 @@ precomputing the keccak256 hash can save gas
 
 G6. https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/Escher721Factory.sol#L27
 Passing ``_name`` and ``symbol`` as calldata can save gas.
+
+G7. https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/Escher.sol#L21
+changing ``_newuri`` to calldata can save gas.
+
+G8. 
