@@ -19,6 +19,8 @@ Passing ``_name`` and ``symbol`` as calldata can save gas.
 G7. https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/Escher.sol#L21
 changing ``_newuri`` to calldata can save gas.
 
+
+
 G8. https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L70-L71
 changing the two statements to the following to save gas: 
 ```
@@ -39,5 +41,11 @@ Changing it to the following line can save gas:
 G10 https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/uris/Generative.sol#L14
 Changing ``string memory _data`` to ``string calldata _data`` can save gas.
 
-G10 https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/uris/Base.sol#L10
+G11 https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/uris/Base.sol#L10
 Changing ``String memory _baseURI`` to ``String calldata _baseURI`` will save gas.
+
+G12. G6. https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/Escher.sol#L69
+The balance can only be 1 so we can change it to the following to save gas
+```
+_burn(_account, uint256(_role), 1);
+```
