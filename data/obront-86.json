@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "obront",
+  "risk": "3",
+  "title": "Owner can set royalties at any time, creating rug pull vulnerability",
+  "issueId": 86,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/86"
+}
