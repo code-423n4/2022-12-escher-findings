@@ -46,3 +46,19 @@ require(paidout, "Failed to pay");
 
 ```
 
+## Issue 4:
+There are multiple instances where `.transfer()` is used to transfer ether. `.transfer()` is dependent on gas cost, because it forwards a fixed amount of gas (2300). Gas specific code should be avoided, because gas costs can change and that can cause the transaction to fail.
+
+### Instances:
+
+https://github.com/code-423n4/2022-12-escher/blob/b60ce318436aaccd00d0701335049726a6f792ff/src/minters/LPDA.sol#L85
+https://github.com/code-423n4/2022-12-escher/blob/b60ce318436aaccd00d0701335049726a6f792ff/src/minters/FixedPrice.sol#L109
+https://github.com/code-423n4/2022-12-escher/blob/b60ce318436aaccd00d0701335049726a6f792ff/src/minters/OpenEdition.sol#L92
+
+### Recommendation:
+Use `call` instead and check if transfer is successful.
+```
+(bool sent, ) = receiver.call{value: ethAmount}(""); 
+require(sent, "Failed to send Ether");
+```
+Notice: When you transfer ether and the receiver is a contract, its `fallback()` function is executed. And using `call` without limiting the amount of gas, it is able to do complex operations. This can cost you more gas, but more importantly it can allow re-entrancy attacks. So make sure you are following Check - Effect - Interaction pattern and in cases where that is not enough include `nonReentrant` modifier.
