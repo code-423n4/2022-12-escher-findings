@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "UniversalCrypto",
+  "risk": "3",
+  "title": "FixedPrice.sol: unchecked `_amount` & unchecked `msg.value` allows free minting & potential DOS",
+  "issueId": 104,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/104"
+}
