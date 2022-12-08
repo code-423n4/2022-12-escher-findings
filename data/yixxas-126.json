@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "yixxas",
+  "risk": "2",
+  "title": "A malicious `feeReceiver()` can reenter and steal all funds from the `saleReceiver()` when sale ends.",
+  "issueId": 126,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/126"
+}
