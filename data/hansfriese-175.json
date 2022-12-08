@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "`OpenEdition.buy()` might revert due to uint overflow when it should work.",
+  "issueId": 175,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/175"
+}
