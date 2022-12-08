@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Parth",
+  "risk": "3",
+  "title": "No check for parameter while creating `LPDA` resulting in loss to users ",
+  "issueId": 143,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/143"
+}
