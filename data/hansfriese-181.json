@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "EIP2981 not properly implemented - setTokenRoyalty is missing",
+  "issueId": 181,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/181"
+}
