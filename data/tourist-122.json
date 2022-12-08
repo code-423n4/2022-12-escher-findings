@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "tourist",
+  "risk": "3",
+  "title": "FUNDS WILL BE LOCKED IF ```saleReceiver``` DOESN'T IMPLEMENT FALLBACK FUNCTIONS",
+  "issueId": 122,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/122"
+}
