@@ -49,3 +49,4 @@ The balance can only be 1 so we can change it to the following to save gas
 ```
 _burn(_account, uint256(_role), 1);
 ```
+
