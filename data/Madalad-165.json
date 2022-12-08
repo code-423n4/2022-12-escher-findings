@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Madalad",
+  "risk": "2",
+  "title": "Unchecked `dropPerSecond` can lead to conflicting final price",
+  "issueId": 165,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/165"
+}
