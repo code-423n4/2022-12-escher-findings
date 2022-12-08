@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "yellowBirdy",
+  "risk": "3",
+  "title": "Reliance on deprecated `selfdestruct` to deliver sales proceeds will break the protocol when `selfdestruct` removed from Solidity.",
+  "issueId": 106,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/106"
+}
