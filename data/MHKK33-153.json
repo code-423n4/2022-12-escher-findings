@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "MHKK33",
+  "risk": "2",
+  "title": "In OpenEditionFactory contract, it  does not check if the implementation contract is actually an instance of the OpenEdition contract.",
+  "issueId": 153,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/153"
+}
