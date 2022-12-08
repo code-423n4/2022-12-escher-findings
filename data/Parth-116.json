@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Parth",
+  "risk": "2",
+  "title": "Usage of transfer over call may result in failure if receiver is smart contract",
+  "issueId": 116,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/116"
+}
