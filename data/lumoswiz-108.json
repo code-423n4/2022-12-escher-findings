@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "lumoswiz",
+  "risk": "3",
+  "title": "LDPA: `getPrice` can underflow without cautiously setting sale variables",
+  "issueId": 108,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/108"
+}
