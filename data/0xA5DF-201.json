@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0xA5DF",
+  "risk": "2",
+  "title": "LPDA price might underflow if configured improperly",
+  "issueId": 201,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/201"
+}
