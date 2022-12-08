@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "hansfriese",
+  "risk": "3",
+  "title": "Editions should be checked if they are actually deployed from the legitimate Escher721Factory",
+  "issueId": 176,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/176"
+}
