@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "yixxas",
+  "risk": "3",
+  "title": "Users can severely overpay for editions if they are not aware of the maximum `amount` buyable with `FixedPrice.sol`",
+  "issueId": 124,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/124"
+}
