@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "Use `safeMint()` instead of `mint()`",
+  "issueId": 185,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/185"
+}
