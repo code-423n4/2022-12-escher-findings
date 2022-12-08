@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0xA5DF",
+  "risk": "3",
+  "title": "Sale and its funds might freeze, in case that the tokens up for sale were minted externally",
+  "issueId": 207,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/207"
+}
