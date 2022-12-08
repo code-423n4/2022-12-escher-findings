@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "`MINTER_ROLE` should be granted to the actual sale contracts so that they can mint NFT",
+  "issueId": 183,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/183"
+}
