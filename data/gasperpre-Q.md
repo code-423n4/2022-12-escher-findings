@@ -52,6 +52,7 @@ There are multiple instances where `.transfer()` is used to transfer ether. `.tr
 ### Instances:
 
 https://github.com/code-423n4/2022-12-escher/blob/b60ce318436aaccd00d0701335049726a6f792ff/src/minters/LPDA.sol#L85
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L105
 https://github.com/code-423n4/2022-12-escher/blob/b60ce318436aaccd00d0701335049726a6f792ff/src/minters/FixedPrice.sol#L109
 https://github.com/code-423n4/2022-12-escher/blob/b60ce318436aaccd00d0701335049726a6f792ff/src/minters/OpenEdition.sol#L92
 
