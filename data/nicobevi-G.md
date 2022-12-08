@@ -195,3 +195,44 @@ https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0
     }
   }
 ```
+
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/OpenEdition.sol#L66-L68
+
+```solidity
+  // Replace this
+  for (uint24 x = temp.currentId + 1; x <= newId; x++) {
+      nft.mint(msg.sender, x);
+  }
+
+  // With this
+  for (uint24 x = temp.currentId + 1; x <= newId;) {
+      nft.mint(msg.sender, x);
+      unchecked {
+        ++x;
+      }
+  }
+```
+
+# Use `temp.price` instead of `sale.price` on `buy()`
+
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/OpenEdition.sol#L63
+
+```solidity
+    function buy(uint256 _amount) external payable {
+        uint24 amount = uint24(_amount);
+        Sale memory temp = sale;
+        IEscher721 nft = IEscher721(temp.edition);
+        require(block.timestamp >= temp.startTime, "TOO SOON");
+        require(block.timestamp < temp.endTime, "TOO LATE");
+        // require(amount * sale.price == msg.value, "WRONG PRICE"); // Replace this line with the line below
+        require(amount * temp.price == msg.value, "WRONG PRICE");
+        uint24 newId = amount + temp.currentId;
+
+        for (uint24 x = temp.currentId + 1; x <= newId; x++) {
+            nft.mint(msg.sender, x);
+        }
+        sale.currentId = newId;
+
+        emit Buy(msg.sender, amount, msg.value, temp);
+    }
+```
