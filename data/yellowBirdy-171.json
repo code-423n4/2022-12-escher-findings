@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "yellowBirdy",
+  "risk": "3",
+  "title": "Failed fee transfer on sale `_end` will block sales proceeds from being claimed. Potentially locking them forever.",
+  "issueId": 171,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/171"
+}
