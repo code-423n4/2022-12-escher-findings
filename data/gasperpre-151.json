@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "gasperpre",
+  "risk": "2",
+  "title": "`currentId` clash with already minted token ID breaks `buy` function and can result in loss of funds",
+  "issueId": 151,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/151"
+}
