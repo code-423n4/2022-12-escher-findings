@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Bnke0x0",
+  "risk": "2",
+  "title": "User's may accidentally overpay in buy() and the excess will be paid to the sale creator",
+  "issueId": 132,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/132"
+}
