@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "call() should be used instead of transfer() on an address payable",
+  "issueId": 182,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/182"
+}
