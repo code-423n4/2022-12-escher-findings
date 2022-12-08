@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "cccz",
+  "risk": "2",
+  "title": "Some functions calls native payable.transfer, which can be unusable for smart contract calls",
+  "issueId": 158,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/158"
+}
