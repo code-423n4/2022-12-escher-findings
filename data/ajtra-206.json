@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "ajtra",
+  "risk": "2",
+  "title": "Use of transfer in a payable address instead of call in buy function of LPDA contract",
+  "issueId": 206,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/206"
+}
