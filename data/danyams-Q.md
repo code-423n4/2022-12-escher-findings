@@ -19,7 +19,15 @@ OpenEdition.sol has a struct Sale, that contains $\2^72 for its member variable,
 
 block.timestamp and block.number are used for entropy in Generative.sol.  However, block.number is not random, while block.timestamp can be manipulated by miners.  Moreover, two Generative contracts, which both call setSeedBase() in the same block will have the same seedbase.  
 
-
-
 Lines 26 - 28 in Generative.sol
+
+# Uint is not properly casted 
+
+buy( ) in FixedPrice.sol can lead to strange events being emitted
+
+# Any NFT can create an Open Edition, Fixed Price, or LDSA Sale 
+
+The msg.sender simply needs to have an NFT in which they are the admin.  Considering that Escher does not keep track of the nfts being minted, it is likely that new sales are being tracked through events, meaning that someone could feign a sale of their NFT depending on the implementation.  
+
+Solution:  Validate msg.sender via Escher 
 
