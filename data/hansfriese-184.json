@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "`selfdestruct()` is not recommended with EIP-4758 in mind",
+  "issueId": 184,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/184"
+}
