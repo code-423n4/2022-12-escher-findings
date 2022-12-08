@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Madalad",
+  "risk": "2",
+  "title": "Volatile price in `LPDA` may cause users calls to `buy()` to revert/overpay",
+  "issueId": 164,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/164"
+}
