@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "hihen",
+  "risk": "2",
+  "title": "Setting a malicious feeReceiver can freeze funds in all of FixedPrice, LPDA, OpenEdition",
+  "issueId": 125,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/125"
+}
