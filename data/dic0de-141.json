@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "dic0de",
+  "risk": "3",
+  "title": "The `currentID` might not increase during sale delaying sale finalization",
+  "issueId": 141,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/141"
+}
