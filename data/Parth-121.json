@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Parth",
+  "risk": "3",
+  "title": "Funds locked in `FixedPrice` contract if no one is willing to buy tokens",
+  "issueId": 121,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/121"
+}
