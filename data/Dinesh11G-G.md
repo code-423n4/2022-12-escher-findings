@@ -54,8 +54,6 @@ bytes32 public immutable GOVERNOR_ROLE = keccak256("GOVERNOR_ROLE");
 2022-12-escher/src/Escher721.sol::19 => bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 2022-12-escher/src/uris/Generative.sol::24 => seedBase = keccak256(abi.encodePacked(numb, blockhash(numb - 1), time, (time % 200) + 1));
 2022-12-escher/src/uris/Generative.sol::29 => return keccak256(abi.encodePacked(_tokenId, seedBase));
-2022-12-escher/test/Escher.t.sol::11 => bytes32 public constant CREATOR_ROLE = keccak256("CREATOR_ROLE");
-2022-12-escher/test/Escher.t.sol::12 => bytes32 public constant CURATOR_ROLE = keccak256("CURATOR_ROLE");
 ```
 #### Tools used
 Manual
@@ -101,8 +99,6 @@ if (!condition) {
 2022-12-escher/src/Escher721.sol::7 => import {ERC2981Upgradeable} from "openzeppelin-upgradeable/token/common/ERC2981Upgradeable.sol";
 2022-12-escher/src/Escher721.sol::8 => import {AccessControlUpgradeable} from "openzeppelin-upgradeable/access/AccessControlUpgradeable.sol";
 2022-12-escher/src/Escher721Factory.sol::7 => import {ITokenUriDelegate} from "./interfaces/ITokenUriDelegate.sol";
-2022-12-escher/::4 => import {IERC721} from "openzeppelin/token/ERC721/IERC721.sol";
-2022-12-escher/::5 => import {IAccessControl} from "openzeppelin/access/AccessControl.sol";
 2022-12-escher/src/minters/FixedPrice.sol::7 => import {Initializable} from "openzeppelin-upgradeable/proxy/utils/Initializable.sol";
 2022-12-escher/src/minters/FixedPrice.sol::8 => import {OwnableUpgradeable} from "openzeppelin-upgradeable/access/OwnableUpgradeable.sol";
 2022-12-escher/src/minters/LPDA.sol::7 => import {Initializable} from "openzeppelin-upgradeable/proxy/utils/Initializable.sol";
@@ -111,13 +107,6 @@ if (!condition) {
 2022-12-escher/src/minters/OpenEdition.sol::8 => import {OwnableUpgradeable} from "openzeppelin-upgradeable/access/OwnableUpgradeable.sol";
 2022-12-escher/src/uris/Base.sol::4 => import {ITokenUriDelegate} from "../interfaces/ITokenUriDelegate.sol";
 2022-12-escher/src/uris/Base.sol::5 => import {OwnableUpgradeable} from "openzeppelin-upgradeable/access/OwnableUpgradeable.sol";
-2022-12-escher/test/Escher.t.sol::6 => import "openzeppelin/token/ERC1155/utils/ERC1155Holder.sol";
-2022-12-escher/test/FixedPrice.t.sol::6 => import {FixedPriceFactory, FixedPrice} from "src/minters/FixedPriceFactory.sol";
-2022-12-escher/test/FixedPrice.t.sol::74 => vm.expectRevert("Initializable: contract is already initialized");
-2022-12-escher/test/OpenEdition.t.sol::5 => import {OpenEditionFactory, OpenEdition} from "src/minters/OpenEditionFactory.sol";
-2022-12-escher/test/OpenEdition.t.sol::69 => vm.expectRevert("Initializable: contract is already initialized");
-2022-12-escher/test/utils/EscherTest.sol::8 => import "openzeppelin/token/ERC721/utils/ERC721Holder.sol";
-2022-12-escher/test/utils/EscherTest.sol::9 => import "openzeppelin/token/ERC1155/utils/ERC1155Holder.sol";
 ```
 #### Tools used
 Manual
