@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "yixxas",
+  "risk": "3",
+  "title": "getPrice() in LPDA sale can underflow which causes permanent loss of funds as all funds will be stuck in contract",
+  "issueId": 167,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/167"
+}
