@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "UniversalCrypto",
+  "risk": "2",
+  "title": "LPDA.sol: potential overflow with `amount` parameter may have unintended effects",
+  "issueId": 107,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/107"
+}
