@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Madalad",
+  "risk": "3",
+  "title": "Unchecked input `Sale.dropPerSecond` can lead to lost funds",
+  "issueId": 161,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/161"
+}
