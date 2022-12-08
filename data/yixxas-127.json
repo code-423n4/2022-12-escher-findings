@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "yixxas",
+  "risk": "2",
+  "title": "There is no way retrieve the funds from the `FixedPrice.sol` contract if NFTs are not completely sold out.",
+  "issueId": 127,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/127"
+}
