@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "hansfriese",
+  "risk": "2",
+  "title": "Incorrect sale parameters can lead to lock of funds for LPDA",
+  "issueId": 180,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/180"
+}
