@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "wait",
+  "risk": "2",
+  "title": "ETH in OpenEdition will be locked if the seller sets a wrong end time accidentally",
+  "issueId": 409,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/409"
+}
