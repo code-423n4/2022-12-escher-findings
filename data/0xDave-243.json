@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0xDave",
+  "risk": "3",
+  "title": "In LPDA sales, if the finalPrice is higher than the startPrice, the funds are stuck in the contract.",
+  "issueId": 243,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/243"
+}
