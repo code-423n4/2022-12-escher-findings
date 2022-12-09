@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "immeas",
+  "risk": "2",
+  "title": "wrong configuration can lock `eth` in `LPDA` contract forever",
+  "issueId": 442,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/442"
+}
