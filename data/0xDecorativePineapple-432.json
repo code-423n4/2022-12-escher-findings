@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0xDecorativePineapple",
+  "risk": "2",
+  "title": "Buyers may not be able to get a full refund due to malicious/wrong Sale arguments when creating the contract",
+  "issueId": 432,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/432"
+}
