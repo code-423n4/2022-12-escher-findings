@@ -1,3 +1,7 @@
+# [N] INCONSISTENCY OF `PRICE` DATA TYPE
+
+In `FixedPrice` the `Sale` struct using `uint96` as its price, meanwhile in `OpenEdition` is using `uint72`, and in `LPDA` it's using `uint80` for the `startPrice` and `finalPrice`, this seems not quite clean design just for the sake of packing slot for gas saving.
+
 # [L] ADD TWO STEP TRANSFER OWNERSHIP PATTERN
 
 The project using Openzeppelin `Ownable` contract for ownership. The implementation of openzeppelin ownable contract doesn't handle two step verification owner transfer.
