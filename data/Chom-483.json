@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Chom",
+  "risk": "2",
+  "title": "Possible negative price on LPDA causes sale and refund mechanism to not working",
+  "issueId": 483,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/483"
+}
