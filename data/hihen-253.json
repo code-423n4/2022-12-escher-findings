@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "hihen",
+  "risk": "2",
+  "title": "The FixedPrice may be hard to end or never be able to end if it is improperly configured",
+  "issueId": 253,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/253"
+}
