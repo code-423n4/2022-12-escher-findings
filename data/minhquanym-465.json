@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "minhquanym",
+  "risk": "2",
+  "title": "Possible overflow when casting `msg.value` to `uint80` might make users losing funds.",
+  "issueId": 465,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/465"
+}
