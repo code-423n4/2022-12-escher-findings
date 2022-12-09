@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "AkshaySrivastav",
+  "risk": "2",
+  "title": "In `Escher721Factory.createContract` any address can be provided as `_uri` for cloning",
+  "issueId": 531,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/531"
+}
