@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "carrotsmuggler",
+  "risk": "3",
+  "title": "Using `transfer` to send eth instead of a call",
+  "issueId": 421,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/421"
+}
