@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "kiki_dev",
+  "risk": "3",
+  "title": " Dutch auction getPrice() formula can lead to price reaching 0 and eventually reverting and locking the function.",
+  "issueId": 501,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/501"
+}
