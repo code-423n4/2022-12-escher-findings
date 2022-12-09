@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0xfuje",
+  "risk": "3",
+  "title": "Centralization risk, malicious admin can revoke all roles and cause denial of service",
+  "issueId": 476,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/476"
+}
