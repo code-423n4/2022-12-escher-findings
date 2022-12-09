@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Tricko",
+  "risk": "3",
+  "title": "Misconfigured `dropPerSecond` can compromise funds.",
+  "issueId": 371,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/371"
+}
