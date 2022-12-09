@@ -86,4 +86,15 @@ poc:
         }
         sale.currentId = newId;
 ```
-uint24 makes it for a higher chance of dos in this function.Make it a bigger unit size
+uint24 makes it for a higher chance of dos in this function. Make it a bigger unit size
+##### this calculation has a chance to revert 
+because if the price is bigger the `balance` it will revert 
+```solidity 
+uint80 owed = r.balance - price;
+```
+also :
+if `timeElapsed` is high number and `dropPerSecond` the function will revert because solidity 
+```
+  return temp.startPrice - (temp.dropPerSecond * timeElapsed);
+```
+make sure a lot of the edge cases are covered
