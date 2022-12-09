@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "carrotsmuggler",
+  "risk": "3",
+  "title": "Mising check for price maths in LPDA",
+  "issueId": 429,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/429"
+}
