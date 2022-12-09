@@ -45,3 +45,8 @@ The size of the variable can be increased without taking up any additional stora
 ```
 
 Also the LDPA price variable can be increased to `uint84` instead of `uint80` without taking up any additional slots.
+
+## `Generative.tokenToSeed()` is internal instead of public
+
+`Generative.tokenToSeed()` function is defined as internal, but has no internal usage.
+I understood from the devs that it's supposed to  serve external contract in generating metadata from a seed. Therefore it needs to be changed to public/external in order to be accessible.
