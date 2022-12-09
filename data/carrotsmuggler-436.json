@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "carrotsmuggler",
+  "risk": "2",
+  "title": "Escher721 uses `_mint` instead of `_safeMint` ",
+  "issueId": 436,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/436"
+}
