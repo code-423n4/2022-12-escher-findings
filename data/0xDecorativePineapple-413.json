@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0xDecorativePineapple",
+  "risk": "2",
+  "title": "Fixedprice.sol and OpenEdition.sol cannot be canceled anymore after EIP-4758",
+  "issueId": 413,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/413"
+}
