@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "poirots",
+  "risk": "2",
+  "title": "Badly configured LPDA Sales could result in Arithmetic underflow",
+  "issueId": 305,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/305"
+}
