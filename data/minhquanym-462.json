@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "minhquanym",
+  "risk": "3",
+  "title": "LPDA sale `getPrice()` will be broken after time because of overflow calculation",
+  "issueId": 462,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/462"
+}
