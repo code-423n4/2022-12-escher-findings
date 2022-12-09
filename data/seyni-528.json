@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "seyni",
+  "risk": "2",
+  "title": "If very few NFTs have been sold `saleReceiver` will have to buy all remaining NFT to retrieve the contract funds.",
+  "issueId": 528,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/528"
+}
