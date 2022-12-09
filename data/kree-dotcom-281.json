@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "kree-dotcom",
+  "risk": "2",
+  "title": "If amount of NFTs sold is insufficient then it may be impossible to end a sale and retrieve funds earned with FixedPrice or LDPA sales.",
+  "issueId": 281,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/281"
+}
