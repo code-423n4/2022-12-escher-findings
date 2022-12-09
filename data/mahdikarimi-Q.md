@@ -1,0 +1,2 @@
+Missing checks for Zero Price in FixedPriceFactory.sol , LPDAFactory.sol and OpenEditionFactory.sol .
+It is better to check that the sale price is not set to zero . If sale creator make such mistake cause users buy editions without paying any price and if start time has arrived there is no way to cancel it . 
