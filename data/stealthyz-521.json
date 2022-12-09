@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "stealthyz",
+  "risk": "2",
+  "title": "Ownership of EscherERC721.sol contracts can be changed, thus creator roles become useless ",
+  "issueId": 521,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/521"
+}
