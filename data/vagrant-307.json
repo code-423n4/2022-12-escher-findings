@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "vagrant",
+  "risk": "2",
+  "title": "LPDA transfers wrong amounts to feeReceiver and saleReceiver",
+  "issueId": 307,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/307"
+}
