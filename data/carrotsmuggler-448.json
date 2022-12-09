@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "carrotsmuggler",
+  "risk": "2",
+  "title": "Incorrect math in `available()` function in OpenEdition",
+  "issueId": 448,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/448"
+}
