@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "kree-dotcom",
+  "risk": "2",
+  "title": "Large NFT buys on all sale types can revert unexpectedly",
+  "issueId": 367,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/367"
+}
