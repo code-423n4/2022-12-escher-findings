@@ -46,6 +46,130 @@ Lines of Code:
 
 https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L36
 
+## ++I Costs Less Gas Than I++ in For Loops
+
+Using ++I rather than I++ saves 5 gas for each iteration of a for loop
+
+      @@ -62,7 +62,7 @@ contract FixedPrice is Initializable, OwnableUpgradeable, ISale {
+             uint48 newId = uint48(_amount) + sale_.currentId;
+             require(newId <= sale_.finalId, "TOO MANY");
+ 
+    -        for (uint48 x = sale_.currentId + 1; x <= newId; x++) {
+    +        for (uint48 x = sale_.currentId + 1; x <= newId; ++x) {
+                 nft.mint(msg.sender, x);
+             }
+ 
+Number of Instances: 3
+
+Lines of Code:
+
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/FixedPrice.sol#L65-L67
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L73-L75
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/OpenEdition.sol#L66-L68
+
+## Use for(uint256 x; x < y; x++) in place of for(uint256 x + 1; x <= y; x++)
+
+Using for(uint256x; x < y; x++) is more gas efficient than for(uint256 x + 1; x <= y; x++).  Specifically, > will be used in place of >= and an unnecessary addition will be omitted.  This will save a minimum of 3 gas for each iteration of the loop and 3 gas for each function call.  
+
+However, this changes the aforementioned contracts' behavior, since token ids can now begin at zero if the creator sets a sale's currentId to 0.  The state variable, currentId, should be renamed to nextId to reflect this behavior.
+
+    @@ -13,7 +13,7 @@ contract FixedPrice is Initializable, OwnableUpgradeable, ISale {
+         /// avoids strict equality of current == final
+         struct Sale {
+             // slot 1
+    -        uint48 currentId;
+    +        uint48 nextId;
+         
+     @@ -59,14 +59,14 @@ contract FixedPrice is Initializable, OwnableUpgradeable, ISale {
+             IEscher721 nft = IEscher721(sale_.edition);
+             require(block.timestamp >= sale_.startTime, "TOO SOON");
+             require(_amount * sale_.price == msg.value, "WRONG PRICE");
+    -        uint48 newId = uint48(_amount) + sale_.currentId;
+    +        uint48 newId = uint48(_amount) + sale_.nextId;
+             require(newId <= sale_.finalId, "TOO MANY");
+ 
+    -        for (uint48 x = sale_.currentId + 1; x <= newId; x++) {
+    +        for (uint48 x = sale_.nextId; x < newId; x++) {
+                 nft.mint(msg.sender, x);
+             }
+ 
+    -        sale.currentId = newId;
+    +        sale.nextId = newId;
+
+Instances: 3 
+
+Lines of Code:
+
+** Add lines of code later
+
+## Inefficient Variable Packing
+
+The last slot in Sale structs use uint96 rather than uint256, even though they both use a full storage slot.  Since the EVM operates in 32 bytes at a type, using a uint96 over a uint256 will lead to unnecessary conversion costs.  
+
+    @@ -20,7 +20,7 @@ contract FixedPrice is Initializable, OwnableUpgradeable, ISale {
+              struct Sale {
+            // slot 1
+            uint48 currentId;
+            uint48 finalId;
+            address edition;
+            // slot 2
+             uint96 price;
+             address payable saleReceiver;
+             // slot 3
+    -        uint96 startTime;
+    +        uint256 startTime;
+         }
+
+Instances: 
+
+Lines of Code:
+
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/FixedPrice.sol#L23
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L26
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/OpenEdition.sol#L22
+
+## Unnecessary SLOADs and MSTOREs
+
+buy( ) in LPDA has an unnecessary SLOADs and MSTOREs.  Specifically, getPrice( ) loads the state variable, sale.  However, this is already loaded at the beginning of buy( ).  The solution is to split getPrice( ) into two functions: getPrice( ) and _getPrice( ) so that the latter uses a memory struct.
+
+      @@ -60,7 +60,7 @@ contract LPDA is Initializable, OwnableUpgradeable, ISale {
+             Sale memory temp = sale;
+             IEscher721 nft = IEscher721(temp.edition);
+             require(block.timestamp >= temp.startTime, "TOO SOON");
+    -        uint256 price = getPrice();
+    +        uint256 price = _getPrice(temp);
+              require(msg.value >= amount * price, "WRONG PRICE");
+ 
+             amountSold += amount;
+     @@ -115,7 +115,10 @@ contract LPDA is Initializable, OwnableUpgradeable, ISale {
+ 
+         function getPrice() public view returns (uint256) {
+     -        Sale memory temp = sale;
+    +        return _getPrice(sale);
+    +    }
+    +    
+    +    function _getPrice(Sale memory temp) internal view returns(uint256) {
+             (uint256 start, uint256 end) = (temp.startTime, temp.endTime);
+             if (block.timestamp < start) return type(uint256).max;
+             if (temp.currentId == temp.finalId) return temp.finalPrice; 
+
+            uint256 timeElapsed = end > block.timestamp ? block.timestamp - start : end - start;
+            return temp.startPrice - (temp.dropPerSecond * timeElapsed);
+        }
+
+Number of Instances: 1
+
+Lines of Code: 
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L117-L126
+
+## Use x = x + y rather than x += y for state variables
+
+x += y costs more than x = x + y for state variables.
+
+Instances: 3
+
+Referenced Code: 
+https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L66-L71
 
 ## Custom Errors 
 
@@ -82,68 +206,6 @@ https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0
 https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/OpenEdition.sol#L91
 https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/OpenEditionFactory.sol#L30-L32
 
-## ++I Costs Less Gas Than I++ in For Loops
-
-Using ++I rather than I++ saves 5 gas for each iteration of a for loop
-
-      @@ -62,7 +62,7 @@ contract FixedPrice is Initializable, OwnableUpgradeable, ISale {
-             uint48 newId = uint48(_amount) + sale_.currentId;
-             require(newId <= sale_.finalId, "TOO MANY");
- 
-    -        for (uint48 x = sale_.currentId + 1; x <= newId; x++) {
-    +        for (uint48 x = sale_.currentId + 1; x <= newId; ++x) {
-                 nft.mint(msg.sender, x);
-             }
- 
-Number of Instances: 3
-
-Lines of Code:
-
-https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/FixedPrice.sol#L65-L67
-https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L73-L75
-https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/OpenEdition.sol#L66-L68
-
-## Changing Sale.currentId to Sale.nextId in LPDA, OpenEdition, and FixedPrice sales
-
-Using nextId rather than currentId will reduce the gas costs of the for loops in LPDA, OpenEdition, and FixedPrice.  Specifically, > will be used in place of >= and an unnecessary addition will be omitted.  However, this changes the aforementioned contracts' behavior, since token ids can now begin at zero, if the creator sets a sale's currentId to 0.
-
-    @@ -13,7 +13,7 @@ contract FixedPrice is Initializable, OwnableUpgradeable, ISale {
-         /// avoids strict equality of current == final
-         struct Sale {
-             // slot 1
-    -        uint48 currentId;
-    +        uint48 nextId;
-         
-     @@ -59,14 +59,14 @@ contract FixedPrice is Initializable, OwnableUpgradeable, ISale {
-             IEscher721 nft = IEscher721(sale_.edition);
-             require(block.timestamp >= sale_.startTime, "TOO SOON");
-             require(_amount * sale_.price == msg.value, "WRONG PRICE");
-    -        uint48 newId = uint48(_amount) + sale_.currentId;
-    +        uint48 newId = uint48(_amount) + sale_.nextId;
-             require(newId <= sale_.finalId, "TOO MANY");
- 
-    -        for (uint48 x = sale_.currentId + 1; x <= newId; x++) {
-    +        for (uint48 x = sale_.nextId; x < newId; x++) {
-                 nft.mint(msg.sender, x);
-             }
- 
-    -        sale.currentId = newId;
-    +        sale.nextId = newId;
-
-Instances: 3 
-
-** Add lines of code later
-
-## > rather than >=
-
-## Does not Cache State Variables
-
-## XXXX
-
-## Unnecessary SLOAD 
-
-- getPrice( ) unnecessarily loads state variables when called internally 
-- the sale can be passed in via memory as it was already loaded when called 
 
 # Full Git Diff
 
