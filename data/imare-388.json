@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "imare",
+  "risk": "2",
+  "title": "``dropPerSecond`` attribute is not sufficiently validated and can DoS ``getPrice`` call of ``LDPA`` auction sale rendering the auction unusable till the end",
+  "issueId": 388,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/388"
+}
