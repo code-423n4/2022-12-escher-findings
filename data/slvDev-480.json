@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "slvDev",
+  "risk": "2",
+  "title": "User can call buy(0) - no NFTs will be minted but a Buy() Event will still be emitted",
+  "issueId": 480,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/480"
+}
