@@ -1,0 +1,1 @@
+In "Escher721Factory.sol", in order to optimize the gas usage, it's possible to set the arguments' location of "createContract" function to calldata considering that their value will not be modified or directly stored into memory.
