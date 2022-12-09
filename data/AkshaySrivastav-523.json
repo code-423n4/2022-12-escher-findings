@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "AkshaySrivastav",
+  "risk": "2",
+  "title": "`LPDA.cancel` function can be invoked multiple times",
+  "issueId": 523,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/523"
+}
