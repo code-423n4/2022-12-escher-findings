@@ -77,3 +77,13 @@ poc:
         other.buy{value: 1}(1);
     }
 ```
+####  since openEdition sale uses uint24 an attacker can flash loan  the max amount and front-run users in the same block and cause dos
+```
+   uint24 newId = amount + temp.currentId;
+
+        for (uint24 x = temp.currentId + 1; x <= newId; x++) {
+            nft.mint(msg.sender, x);
+        }
+        sale.currentId = newId;
+```
+uint24 makes it for a higher chance of dos in this function.Make it a bigger unit size
