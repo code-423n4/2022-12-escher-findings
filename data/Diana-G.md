@@ -52,7 +52,7 @@ File: src/minters/LPDA.sol
 
 -----
 
-## G-03 USAGE OF UINTS OR INTS SMALLER THAN 32 BYTES (26 BITS) INCURS OVERHEAD
+## G-03 USAGE OF UINTS OR INTS SMALLER THAN 32 BYTES INCURS OVERHEAD
 
 When using elements that are smaller than 32 bytes, your contract’s gas usage may be higher. This is because the EVM operates on 32 bytes at a time. Therefore, if the element is smaller than that, the EVM must use more operations in order to reduce the size of the element from 32 bytes to the desired size.
 
