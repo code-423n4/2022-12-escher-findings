@@ -46,11 +46,11 @@ for (uint256 i = 0; i < orders.length;) {
 **Context:**  
 ```
 src\minters\LPDA.sol:
-   86:          temp.saleReceiver.transfer(totalSale - fee); 
+   86:          temp.saleReceiver.transfer(totalSale - fee); // unchecked {totalSale - fee}
 
-  123:         uint256 timeElapsed = end > block.timestamp ? block.timestamp - start : end - start; (block.timestamp - start)
+  123:         uint256 timeElapsed = end > block.timestamp ? block.timestamp - start : end - start; // unchecked {block.timestamp - start}
 
-  123:         uint256 timeElapsed = end > block.timestamp ? block.timestamp - start : end - start; (end - start)
+  123:         uint256 timeElapsed = end > block.timestamp ? block.timestamp - start : end - start; // unchecked {end - start}
 ```
 https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L86  
 
