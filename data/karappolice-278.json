@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "karappolice",
+  "risk": "2",
+  "title": "The `DEFAULT_ADMIN_ROLE`  can  grant and revoke its own role. Extra precautions should be taken to secure  accounts that have been granted it.",
+  "issueId": 278,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/278"
+}
