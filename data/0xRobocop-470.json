@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0xRobocop",
+  "risk": "2",
+  "title": "Denial of Service on the LPDA.sol contract due to incorrect validation of parameters.",
+  "issueId": 470,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/470"
+}
