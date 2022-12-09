@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": "Lack of function that a curator can call the `_revokeRole()` function",
+  "issueId": 374,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/374"
+}
