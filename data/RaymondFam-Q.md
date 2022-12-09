@@ -1,8 +1,25 @@
 ## Two-step Transfer of Ownership
-In `Base.sol`, the contract inherits from `OwnableUpgradeable` where `_transferOwnership()` is invoked in `initialize()` allowing the oldOwner to transfer ownership to the newOwner. This function does not implement zero address check (like `transferOwnership` does) and proceeds directly to write the new owner's address into the owner's state variable, `_owner`. If the nominated EOA account is not a valid account, it is entirely possible the contract deployer may accidentally transfer ownership to an uncontrolled account or a zero address, breaking all functions with the onlyOwner() modifier.
+In `Base.sol`, the contract inherits from `OwnableUpgradeable` where `_transferOwnership()` is invoked in `initialize()` allowing the oldOwner to transfer ownership to the newOwner. This function does not implement zero address check (like `transferOwnership` does) and proceeds directly to write the new owner's address into the owner's state variable, `_owner`. If the nominated account is not a valid account, it is entirely possible the contract deployer may accidentally transfer ownership to an uncontrolled account or a zero address, breaking all functions with the onlyOwner() modifier.
 
-Consider implementing a two step process where the deployer nominates an account and the nominated account needs to call an acceptOwnership() function for the transfer of ownership to fully succeed.  This will ensure the new owner is going to be fully aware of the ownership assigned/transferred other than having the above mistake avoided.
+Consider implementing a two step process where the deployer nominates an account and the nominated account needs to call an acceptOwnership() function for the transfer of ownership to fully succeed (using OpenZeppelin's `Ownable2StepUpgradeable.sol` if need be).  This will ensure the new owner is going to be fully aware of the ownership assigned/transferred other than having the above mistake avoided.
 
+All other instances entailed:
+
+[File: FixedPrice.sol#L80](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L80)
+
+```
+        _transferOwnership(_sale.saleReceiver);
+```
+[File: OpenEdition.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol)
+
+```
+        _transferOwnership(sale.saleReceiver);
+```
+[File: LPDA.sol#L112](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L112)
+
+```
+        _transferOwnership(sale.saleReceiver);
+```
 ## Shadowed Variable
 The `_owner` state variable inherited from `OwnableUpgradeable.sol` is shadowed in `initialize()` of `Base.sol`.
 
@@ -28,7 +45,7 @@ This feature is readily incorporated in the Solidity Wizard since the UUPS vulne
     constructor() {
         _disableInitializers();
     }
-Here are some of the contract instances entailed:
+Here are the contract instances entailed:
 
 [File: Base.sol#L18](https://github.com/code-423n4/2022-12-escher/blob/main/src/uris/Base.sol#L18)
 
@@ -58,6 +75,8 @@ Here are the contract instances partially lacking NatSpec:
 [File:LPDAFactory.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDAFactory.sol)
 [File: Escher.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol)
 [File: Escher721.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol)
+[File: OpenEdition.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol)
+[File: LPDA.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol)
 
 ## Complementary Codehash Checks
 Consider implementing an optional codehash check for immutable contract addresses at the constructor that will assure matching inputs of constructor parameters.
