@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "supernova",
+  "risk": "3",
+  "title": "Use call opcode instead of transfer for sending value ",
+  "issueId": 272,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/272"
+}
