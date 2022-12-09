@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "pesak02",
+  "risk": "2",
+  "title": "Transferring Fee To The Fee Receiver Logic Does Not Handle Decimals Properly",
+  "issueId": 519,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/519"
+}
