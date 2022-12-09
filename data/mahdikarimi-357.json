@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "mahdikarimi",
+  "risk": "3",
+  "title": "No mechanism to transfer saleAmounts to saleReceiver in sepecial case . ",
+  "issueId": 357,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/357"
+}
