@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "kree-dotcom",
+  "risk": "3",
+  "title": "LPDA funds can be frozen due to `getPrice()` reverts",
+  "issueId": 327,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/327"
+}
