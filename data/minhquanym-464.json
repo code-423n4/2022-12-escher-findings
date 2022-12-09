@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "minhquanym",
+  "risk": "2",
+  "title": "Unsafe casting from uint256 to uint48 could make users losing funds.",
+  "issueId": 464,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/464"
+}
