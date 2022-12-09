@@ -299,3 +299,32 @@ PUSH1 [revert offset]
 JUMPI
 ```
 Disclaimer: There have been several bugs with security implications related to optimizations. For this reason, Solidity compiler optimizations are disabled by default, and it is unclear how many contracts in the wild actually use them. Therefore, it is unclear how well they are being tested and exercised. High-severity security issues due to optimization bugs have occurred in the past . A high-severity bug in the emscripten -generated solc-js compiler used by Truffle and Remix persisted until late 2018. The fix for this bug was not reported in the Solidity CHANGELOG. Another high-severity optimization bug resulting in incorrect bit shift results was patched in Solidity 0.5.6. Please measure the gas savings from optimizations, and carefully weigh them against the possibility of an optimization-related bug. Also, monitor the development and adoption of Solidity compiler optimizations to assess their maturity.
+
+## Unchecked SafeMath Saves Gas
+"Checked" math, which is default in ^0.8.0 is not free. The compiler will add some overflow checks, somehow similar to those implemented by `SafeMath`. While it is reasonable to expect these checks to be less expensive than the current `SafeMath`, one should keep in mind that these checks will increase the cost of "basic math operation" that were not previously covered. This particularly concerns variable increments in for loops.
+
+When no arithmetic overflow/underflow is going to happen, `unchecked { x++ ;}` in the code block to use the previous wrapping behavior further saves gas just as in the for loop below as an example:
+
+[File: OpenEdition.sol#L66-L68](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L66-L68)
+
+```
+        for (uint24 x = temp.currentId + 1; x <= newId;) {
+            nft.mint(msg.sender, x);
+
+            unchecked {
+                x++;
+            }
+        }
+```
+All other instances entailed:
+
+[File: LPDA.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol)
+
+```
+73:        for (uint256 x = temp.currentId + 1; x <= newId; x++) {
+```
+[File: FixedPrice.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol)
+
+```
+65:        for (uint48 x = sale_.currentId + 1; x <= newId; x++) {
+```
