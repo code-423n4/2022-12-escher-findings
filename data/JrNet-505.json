@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "JrNet",
+  "risk": "2",
+  "title": "Lack of verification for `_uri` parameter in `createContract()` function in `Escher721Factory` contract",
+  "issueId": 505,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/505"
+}
