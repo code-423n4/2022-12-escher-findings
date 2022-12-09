@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "KingNFT",
+  "risk": "2",
+  "title": "Sale contracts may be blocked if more than one sales run simultaneously",
+  "issueId": 331,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/331"
+}
