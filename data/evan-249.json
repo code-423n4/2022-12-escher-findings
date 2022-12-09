@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "evan",
+  "risk": "2",
+  "title": "tokenUriDelegate of Escher721.sol is not guaranteed to be initialized",
+  "issueId": 249,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/249"
+}
