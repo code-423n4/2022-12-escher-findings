@@ -23,6 +23,18 @@ All other instances entailed:
 ```
 27:    function tokenToSeed(uint256 _tokenId) internal view returns (bytes32) {
 ```
+[File: Escher.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol)
+
+```
+33:    ) public view override(ERC1155, AccessControl) returns (bool) {
+```
+[File: Escher721.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol)
+
+```
+80:    ) public view override(ERC721Upgradeable) returns (string memory) {
+
+90:        returns (bool)
+```
 ## Payable Access Control Functions Costs Less Gas
 Consider marking functions with access control as `payable`. This will save 20 gas on each call by their respective permissible callers for not needing to have the compiler check for `msg.value`.
 
@@ -62,6 +74,17 @@ Here are the instances entailed:
 
 27:    function addCreator(address _account) public onlyRole(CURATOR_ROLE) {
 ```
+[File: Escher721.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol)
+
+```
+51:    function mint(address to, uint256 tokenId) public virtual onlyRole(MINTER_ROLE) {
+
+57:    function updateURIDelegate(address _uriDelegate) public onlyRole(URI_SETTER_ROLE) {
+
+67:    ) public onlyRole(DEFAULT_ADMIN_ROLE) {
+
+72:    function resetDefaultRoyalty() public onlyRole(DEFAULT_ADMIN_ROLE) {
+```
 ## Non-strict inequalities are cheaper than strict ones
 In the EVM, there is no opcode for non-strict inequalities (>=, <=) and two operations are performed (> + = or < + =).
 
@@ -85,7 +108,3 @@ All other instances entailed:
 ```
 32:        require(sale.startTime >= block.timestamp, "INVALID START TIME");
 ```
-## Unused Imports
-Importing source units that are not referenced in the contract increases the size of deployment. Consider removing them to save some gas. If there was a plan to use them in the future, a comment explaining why they were imported would be helpful.
-
-Here are the instances entailed:
