@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "mahdikarimi",
+  "risk": "3",
+  "title": "No mechanism to transfer fee amount to feeReceiver in sepecial case . ",
+  "issueId": 360,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/360"
+}
