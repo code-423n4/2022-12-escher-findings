@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Chom",
+  "risk": "2",
+  "title": "LPDA price is not calculated correctly such that it won't end at the final price as expected",
+  "issueId": 486,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/486"
+}
