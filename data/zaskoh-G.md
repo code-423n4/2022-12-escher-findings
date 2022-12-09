@@ -1,10 +1,22 @@
-# internal functions not called by the contract should be removed
+# Gas
+
+|   |issue   |
+|---|---|
+|1   |[1. internal functions not called by the contract should be removed](#1-internal-functions-not-called-by-the-contract-should-be-removed)|
+|2   |[2. remove or change unneeded function](#2-remove-or-change-unneeded-function)|
+|3   |[3. use unchecked if no over- or underflow is possible](#3-use-unchecked-if-no-over-or-underflow-is-possible)|
+|4   |[4. change onlyOwner (admin external functions not for endusers) to payable](#4-change-onlyowner-admin-external-functions-not-for-endusers-to-payable)|
+|5   |[5. storage pointer is cheaper than memory](#5-storage-pointer-is-cheaper-than-memory)|
+|6   |[6. empty blocks should be removed or emit something](#6-empty-blocks-should-be-removed-or-emit-something)|
+
+
+## 1. internal functions not called by the contract should be removed
 ```solidity
 File: src/Escher721.sol
 96:     function _burn(uint256 tokenId) internal override(ERC721Upgradeable) { // @audit is never used and can be removed
 ```
 
-# remove / change unneeded function
+## 2. remove or change unneeded function
 To save deployment size you can remove the tokenURI function, as the baseURI what it returns is public or change the visibility to private.
 
 ```solidity
@@ -14,7 +26,7 @@ File: src/uris/Base.sol
 16:     }
 ```
 
-# use unchecked if no over- / underflow is possible
+## 3. use unchecked if no over or underflow is possible
 If it's not possible that the equation will over- / underflow, especially if it was checked previously it's better to use an unchecked{} block to save gas.
 
 ```solidity
@@ -107,7 +119,7 @@ Savings:
 +| 1284088                                                        | 6154            |        |        |        |         |
 ```
 
-# change onlyOwner / admin / external functions not for endusers to payable
+## 4. change onlyOwner (admin external functions not for endusers) to payable
 If a function is only callable by special users like admins it makes sense to add payable. The compiler removes checks for msg.value, saving approximately 20 gas per function call.
 
 ```solidity
@@ -302,7 +314,7 @@ Savings:
  | transferOwnership                                              | 2627            | 4910   | 4910   | 7193   | 2       |
 ```
 
-# storage pointer is cheaper than memory
+## 5. storage pointer is cheaper than memory
 Reference types cached in memory cost more gas than using storage pointers, as new memory is allocated for these variables, copying data from storage to memory.
 
 ```git
@@ -470,7 +482,7 @@ Savings:
 
 ```
 
-# empty blocks should be removed or emit something
+## 6. empty blocks should be removed or emit something
 To save deployment size the code should be refactored such that they no longer exist, or the block should do something useful, such as emitting an event or reverting. If the contract is meant to be extended, the contract should be abstract.
 ```solidity
 File: src/Escher721.sol
