@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "lukris02",
+  "risk": "2",
+  "title": "System will not work as expected when selfdestruct is deactivated",
+  "issueId": 400,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/400"
+}
