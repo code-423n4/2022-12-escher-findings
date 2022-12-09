@@ -2,6 +2,8 @@
 
 If an LPDA sale has greater demand than expected, a user may never be refunded.  This occurs since the balance of the contract will be transferred out in the **buy( )** function once the sale's **final id** is reached.  
 
+**Recommended Mitigation Steps:**
+
 A solution would be to separate the transfers into a separate function and make it callable only after the sale's **end time** has been reached.
 
 Referenced Code: https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/LPDA.sol#L81-L88
@@ -9,6 +11,10 @@ Referenced Code: https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e863
 # [02] Open Editions cannot be sold for more than 4722 ether 
 
 OpenEdition.sol has a struct **Sale**, that contains 2^72  for its member variable, **price**.  2^72  wei is roughly 4722 ether, meaning that this is the max limit that an Open Edition NFT can be sold for.
+
+**Recommended Mitigation Steps:**
+
+Change price to a uint80, which would lead to a max price of 1208925 ether.
 
 Referenced Code: https://github.com/code-423n4/2022-12-escher/blob/5d8be6aa0e8634fdb2f328b99076b0d05fefab73/src/minters/OpenEdition.sol#L15
 
