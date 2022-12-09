@@ -71,3 +71,21 @@ Every reading from storage costs about 100 gas while every reading from memory c
 Change to:  
 require(amount * temp.price == msg.value, "WRONG PRICE");
 
+
+### [G-4]: Storage pointer to a structure is cheaper than copying each value of the structure into memory, same for array and mapping
+**Context:** 
+1. https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L58
+1. https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L59
+1. https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L90
+1. https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L60
+1. https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L100
+1. https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L118
+
+**Description:**
+Every time you copy a storage struct/array/mapping to a memory variable, you are literally copying each member by reading it from storage, which is expensive. And when you use the storage keyword, you are just storing a pointer to the storage, which is much cheaper.
+
+**Recommendation:**  
+Change ```memory``` to ```storage```:
+```
+Sale storage sale_ = sale;
+```
