@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "adriro",
+  "risk": "2",
+  "title": "Creator can still \"cancel\" a sale after it has started by revoking permissions in `OpenEdition` contract",
+  "issueId": 399,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/399"
+}
