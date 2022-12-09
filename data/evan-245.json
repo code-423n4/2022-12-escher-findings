@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "evan",
+  "risk": "2",
+  "title": "Missing address(0) checks in OpenEditionFactory.sol, and FixedPriceFactory.sol",
+  "issueId": 245,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/245"
+}
