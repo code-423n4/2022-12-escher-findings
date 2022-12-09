@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "SmartSek",
+  "risk": "2",
+  "title": "No `endTime` limit may lead to artist never being able to claim his payout",
+  "issueId": 284,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/284"
+}
