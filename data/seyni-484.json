@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "seyni",
+  "risk": "2",
+  "title": "`_mint` is used instead of `_safeMint` for ERC721",
+  "issueId": 484,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/484"
+}
