@@ -50,3 +50,12 @@ Also the LDPA price variable can be increased to `uint84` instead of `uint80` wi
 
 `Generative.tokenToSeed()` function is defined as internal, but has no internal usage.
 I understood from the devs that it's supposed to  serve external contract in generating metadata from a seed. Therefore it needs to be changed to public/external in order to be accessible.
+
+## Any user can create a sale with a cloned `Escher721` contract
+The sale contract factories only check that the creator has the admin role over the `_sale.edition` contract.
+But any user can simply clone the code of `Escher721`, deploy his own version without having the Creator role and then start a sale with it.
+This might confuse users to thing that the created sale contract is from a legitimate seller approved by the protocol.
+
+### Mitigation
+The cheapest/easiest solution would be to also check that `msg.sender` has the Creator role.
+A more thorough solution would be to handle a registry of deployed contract at `Escher721Factory`, and at the sale factories check that the `edition` contract is registered there.
