@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "imare",
+  "risk": "2",
+  "title": "after EIP-4758 ``cancel`` function will stop to work",
+  "issueId": 387,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/387"
+}
