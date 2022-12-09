@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "nalus",
+  "risk": "3",
+  "title": "Creator could use malicious ERC721 when creating sales",
+  "issueId": 439,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/439"
+}
