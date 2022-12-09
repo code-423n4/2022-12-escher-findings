@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Matin",
+  "risk": "3",
+  "title": "Token can be bought with zero amount in FixedPrice.sol",
+  "issueId": 351,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/351"
+}
