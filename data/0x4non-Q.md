@@ -88,3 +88,5 @@ Event emission is a critical aspect of smart contract development in Solidity, a
 ### [Q-1] `struct` should be defined before contract states vars
 
 On [OpenEdition.sol#L11](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L11) you have state variable an then the struct. Change it and first declare the structs.
+
+On [LPDA.sol#L11](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L11) you have state variable an then the struct. Change it and first declare the structs.
