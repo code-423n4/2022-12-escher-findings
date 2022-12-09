@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "neumo",
+  "risk": "3",
+  "title": "getPrice() can underflow making impossible to end the LPDA",
+  "issueId": 381,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/381"
+}
