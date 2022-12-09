@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "karappolice",
+  "risk": "2",
+  "title": "createContract is not secured",
+  "issueId": 290,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/290"
+}
