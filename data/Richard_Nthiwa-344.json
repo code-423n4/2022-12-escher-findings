@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Richard_Nthiwa",
+  "risk": "3",
+  "title": "setSeedBase() uses block.timestamp Risking time manipulation.",
+  "issueId": 344,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/344"
+}
