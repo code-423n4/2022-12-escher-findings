@@ -81,3 +81,44 @@ https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L42
 https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L43
 
 
+## PUBLIC FUNCTIONS NOT CALLED WITHIN THE CONTRACT SHOULD BE MARKED AS EXTERNAL
+
+### Description:
+
+The functions that are not being called within the contract should be marked as external instead to adhere to the convention.
+
+
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L32
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L51
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L57
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L64
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L72
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L78
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L84
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPriceFactory.sol#L42
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L78
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L86
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L91
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L96
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L101
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEditionFactory.sol#L42
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDAFactory.sol#L46
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol#L21
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol#L27
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol#L31
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol#L38
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol#L49
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L82
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L89
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L97
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L102
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L107
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L112
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L116
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L99
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L110
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L117
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L128
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L133
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L138
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L142
