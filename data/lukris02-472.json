@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "lukris02",
+  "risk": "3",
+  "title": "Ether can be lost in LPDA contract if sale.dropPerSecond is set improperly",
+  "issueId": 472,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/472"
+}
