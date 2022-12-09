@@ -1,9 +1,29 @@
+## POSSIBILITY TO FRONTRUN THE INITIALIZE FUNCTION
+
+### Description:
+
+The initialize function here https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L78 (and other initialize functions)
+can be frontrun , i.e attacker can call the initialize function prior to the team and deploy the contract with his/her value.
+Consider adding access modifier to this function.
+
 ## MISLEADING COMMENT 
 
 ### Description:
 
 The comment here https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEditionFactory.sol#L27 says it is creating
 a fixed sale proxy when it should be saying that it creates open edition proxy. This was probably copy pasted from the Fixed Proxy contract.
+Similar error here https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L91
+
+## SETTING OF PRIVILEGED ROLE SHOULD BE A TWO STEP PROCESS
+
+### Description:
+
+The setter function where we are assigning roles the executor and relay roles should be converted to a 2 step process , so that in a scenario
+while setting the role if by mistake the owner sets the wrong address or some invalid address , instead of redeploying the whole contract we can
+set the `tempUriDelegate`(example) and then the `tempUriDelegate` accepts his/her role and then we assign the tokenUriDelegate as the delegate.
+
+Convert this function into a 2-step process -
+https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L57
 
 ## EXPRESSIONS FOR CONSTANT VALUES SUCH AS A CALL TO KECCAK256(), SHOULD USE IMMUTABLE RATHER THAN CONSTANT
 
@@ -29,6 +49,11 @@ Zero-address checks are a best practice for input validation of critical address
 Impact: Accidental use of zero-addresses may result in exceptions, burn fees/tokens, or force redeployment of contracts.
 
 Affected Instances:
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPriceFactory.sol#L29
+In this function there is no check to see if the  `saleReceiver` is a 0 address.
+Similarly here  https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEditionFactory.sol#L27
+More instances:
+
 https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L51 (`to` address)
 https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L57
 https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L65
@@ -59,6 +84,8 @@ It is very important to have natspec comments for functions to help the reader u
 Affected instances:
 https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L84
 https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPriceFactory.sol#L12-L13
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L116
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L125
 
 ## EVENT IS MISSING INDEXED FIELDS
 
