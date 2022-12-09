@@ -24,6 +24,35 @@ This happens on:
 
 On [Escher721.sol#L64-L69](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L64-L69) it seems that `feeNumerator` can be 100_00 bps, add a threashold if you intent to fix a max royalty percentage.
 
+### [L-3] Use `_safeMint` instead of `_mint` for minting ERC721
+OpenZeppelin recommends the usage of `_safeMint()` instead of `_mint()`. If the recipient is a contract,`_safeMint()` checks whether they can handle ERC721 tokens.
+
+On (Escher721.sol#L52)[https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L52]`mint(address to, uint256 tokenId)` you are using `_mint` function to mint the NTFs. However, this will not trigger the expected callback after minting the NFT if the buyer is a contract. This could cause issues with the implementation of the ERC721 standard and may result in stuck or malfunctioning contracts.
+
+
+So if a contract buys a NFT in any of this;
+- https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L66
+- https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L74
+- https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L67
+
+It could get stuck or dont work as the ERC721 standard expect to work.
+
+The recomendation is to use `_safeMint` instead of `_mint`, take in consideration that `_safeMint` will trigger a callback to the receiver, so stick to [check - effects - itterarion pattern](https://fravoll.github.io/solidity-patterns/checks_effects_interactions.html) or add a `nonReentrant` modifier to `minters/FixedPrice.sol#L66`, `minters/LPDA.sol#L74` & `minters/OpenEdition.sol#L67`
+
+
+In OZ ERC721 docs on `_mint` method;
+> Usage of this method is discouraged, use _safeMint whenever possible
+
+Reference: https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721-_mint-address-uint256-
+
+
+### [L-4] Reentrancy issue
+If minting would work as expected (if the minter is a contract he should receive a callback because of `_safeMint`), this functions dont respect the [check - effects - itterarion pattern](https://fravoll.github.io/solidity-patterns/checks_effects_interactions.html) or add a `nonReentrant` modifier.
+- https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L66
+- https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L74
+- https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L67
+
+
 ## Non critical
 
 ### [NC-0] Floating pragma
