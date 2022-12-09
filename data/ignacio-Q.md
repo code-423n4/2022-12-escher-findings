@@ -21,3 +21,9 @@ two or more dynamic types are passed to abi.encodePacked. Moreover, these dynami
 Use abi.encode() instead which will pad items to 32 bytes, which will prevent hash collisions (e.g. abi.encodePacked(0x123,0x456) => 0x123456 => abi.encodePacked(0x1,0x23456), but abi.encode(0x123,0x456) => 0x0...1230...456). “Unless there is a compelling reason, abi.encode should be preferred”. If there is only one argument to abi.encodePacked() it can often be cast to bytes() or bytes32() instead
 
 https://github.com/code-423n4/2022-12-escher/blob/main/src/uris/Generative.sol#L24
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L110
+#USE CALL() INSTEAD OF TRANSFER() ON AN ADDRESS PAYABLE CAN SAVE GAS
+The claimer smart contract does implement a payable fallback which uses more than 2300 gas unit.
+The claimer smart contract implements a payable fallback function that needs less than 2300 gas units but is called through proxy, raising the call’s gas usage above 2300.
+Additionally, using higher than 2300 gas might be mandatory for some multisig wallets.
+Whenever the user either fails to implement the payable fallback function or cumulative gas cost of the function sequence invoked on a native token transfer exceeds 2300 gas consumption limit the native tokens sent end up undelivered and the corresponding user funds return functionality will fail each time.
