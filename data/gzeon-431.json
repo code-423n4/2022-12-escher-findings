@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "gzeon",
+  "risk": "3",
+  "title": "saleReceiver can drain reserved refund in LPDA minter",
+  "issueId": 431,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/431"
+}
