@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "evan",
+  "risk": "2",
+  "title": "Price can fall below 0 in LPDA sale, causing DOS",
+  "issueId": 231,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/231"
+}
