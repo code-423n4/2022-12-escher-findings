@@ -53,3 +53,33 @@ https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#17
 
 **Description:**  
 According to [official solidity documentation](https://docs.soliditylang.org/en/v0.8.17/contracts.html#constant-and-immutable-state-variables) for a constant variable, the expression assigned to it is copied to all the places where it is accessed and also re-evaluated each time. It is recommended to use immutable instead. 
+
+### [N-4]: Changing the state after token operations is dangerous 
+**Context:**  
+
+1. https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L69
+1. https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L69
+1. https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L77
+
+**Description:**  
+The better practice to use Checks Effects Interactions pattern.
+
+
+**Recommendation:**
+Example how to fix. Change:
+```
+        for (uint48 x = sale_.currentId + 1; x <= newId; x++) {
+            nft.mint(msg.sender, x);
+        }
+
+        sale.currentId = newId;
+```
+https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/FixedPrice.sol#L65-L69
+
+To:  
+```
+        sale.currentId = newId;
+        for (uint48 x = sale_.currentId + 1; x <= newId; x++) {
+            nft.mint(msg.sender, x);
+        }
+```
