@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "tnevler",
+  "risk": "2",
+  "title": "selfdestruct() will not be available after EIP-4758",
+  "issueId": 377,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/377"
+}
