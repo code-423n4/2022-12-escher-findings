@@ -90,3 +90,36 @@ Event emission is a critical aspect of smart contract development in Solidity, a
 On [OpenEdition.sol#L11](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEdition.sol#L11) you have state variable an then the struct. Change it and first declare the structs.
 
 On [LPDA.sol#L11](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDA.sol#L11) you have state variable an then the struct. Change it and first declare the structs.
+
+
+### [Q-2] Use `_disableInitializers` on `Escher721` so `Escher721Factory` dont have to intialize implementation
+
+```diff
+diff --git a/src/Escher721.sol b/src/Escher721.sol
+index c22429b..f9b9fd5 100644
+--- a/src/Escher721.sol
++++ b/src/Escher721.sol
+@@ -22,7 +22,9 @@ contract Escher721 is
+     address public tokenUriDelegate;
+ 
+     /// @custom:oz-upgrades-unsafe-allow constructor
+-    constructor() {}
++    constructor() {
++        _disableInitializers();
++    }
+ 
+     /// @notice initialize the proxy contract
+     /// @param _creator the initial admin for the contract
+diff --git a/src/Escher721Factory.sol b/src/Escher721Factory.sol
+index 9eb2771..b1bae91 100644
+--- a/src/Escher721Factory.sol
++++ b/src/Escher721Factory.sol
+@@ -17,7 +17,6 @@ contract Escher721Factory {
+     constructor(address _escher) {
+         escher = Escher(_escher);
+         implementation = address(new Escher721());
+-        Escher721(implementation).initialize(address(this), address(0), "Implementation", "IMPL");
+     }
+ 
+     /// @notice create a new escher unique contract
+```
