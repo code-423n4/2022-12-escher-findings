@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "seyni",
+  "risk": "3",
+  "title": "Users can lose funds if they call `buy` with `_amount` larger than type(uint48).max.",
+  "issueId": 512,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/512"
+}
