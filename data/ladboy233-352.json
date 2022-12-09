@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Factory Owner can block sellers from receiving their selling revenue by setting a fee receiver to a smart contract that is not capable of receiving ETH",
+  "issueId": 352,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/352"
+}
