@@ -51,3 +51,29 @@ instead:
 ```
 (uint48 x = sale_.currentId ; x < newId; x++)
 ```
+
+##### with a high number of tokens or starting off with a high `currentId` the function will revert
+poc:
+``
+```solidity 
+  function test_overflow() public payable {
+        // make the fixed-price sale
+        FixedPrice.Sale memory s;
+        FixedPrice other;
+        s = FixedPrice.Sale({
+            currentId: type(uint48).max - 1,
+            finalId: type(uint48).max,
+            edition: address(edition),
+            price: uint96(uint256(1)),
+            saleReceiver: payable(address(6)),
+            startTime: uint96(block.timestamp)
+        });
+        other = FixedPrice(fixedSales.createFixedSale(s));
+        // authorize the fixed price sale to mint tokens
+        edition.grantRole(edition.MINTER_ROLE(), address(other));
+        vm.prank(address(6));
+        uint256 b = uint256(type(uint48).max) + 1;
+        vm.deal(address(6), b);
+        other.buy{value: 1}(1);
+    }
+```
