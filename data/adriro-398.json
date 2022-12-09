@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "adriro",
+  "risk": "2",
+  "title": "Sale end time is not checked in `LPDA` contract",
+  "issueId": 398,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/398"
+}
