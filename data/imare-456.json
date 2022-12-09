@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "imare",
+  "risk": "2",
+  "title": "reentrancy in ``FixedPrice::buy`` can increase number of minted NFT token",
+  "issueId": 456,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/456"
+}
