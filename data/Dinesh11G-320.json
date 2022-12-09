@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "Dinesh11G",
+  "risk": "2",
+  "title": "**createLPDASale** function allows unauthorized users to specify the **saleReceiver** address",
+  "issueId": 320,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/320"
+}
