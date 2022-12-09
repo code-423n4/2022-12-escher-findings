@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0x4non",
+  "risk": "2",
+  "title": "Use of weak randomness in `setSeedBase` function",
+  "issueId": 252,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/252"
+}
