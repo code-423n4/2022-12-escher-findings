@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "slvDev",
+  "risk": "2",
+  "title": "LPDA can be initialized with parameters that will revert getPrice()",
+  "issueId": 485,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/485"
+}
