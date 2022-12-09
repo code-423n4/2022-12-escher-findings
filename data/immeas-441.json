@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "immeas",
+  "risk": "3",
+  "title": "`saleReceiver` and `feeReceiver` can steal refunds after sale has ended",
+  "issueId": 441,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/441"
+}
