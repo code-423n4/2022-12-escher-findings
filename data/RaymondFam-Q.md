@@ -35,6 +35,11 @@ Here are some of the contract instances entailed:
 ```
     function initialize(address _owner) public initializer {
 ```
+[File: Escher721.sol#L25](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L25)
+
+```
+    constructor() {}
+```
 ## Inadequate NatSpec
 Solidity contracts can use a special form of comments, i.e., the Ethereum Natural Language Specification Format (NatSpec) to provide rich documentation for functions, return variables and more. Please visit the following link for further details:
 
@@ -52,6 +57,7 @@ Here are the contract instances partially lacking NatSpec:
 [File: OpenEditionFactory.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/OpenEditionFactory.sol)
 [File:LPDAFactory.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/minters/LPDAFactory.sol)
 [File: Escher.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol)
+[File: Escher721.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol)
 
 ## Complementary Codehash Checks
 Consider implementing an optional codehash check for immutable contract addresses at the constructor that will assure matching inputs of constructor parameters.
@@ -98,4 +104,55 @@ Here are the instances entailed:
 
 ```
 46:    function setFeeReceiver(address payable fees) public onlyOwner {
+```
+[File: Escher721.sol](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol)
+
+```
+57:    function updateURIDelegate(address _uriDelegate) public onlyRole(URI_SETTER_ROLE) {
+```
+## Constructor of Escher.sol
+According to [README.md](https://github.com/code-423n4/2022-12-escher), only assigned roles as a Curator or a Creator are ERC1155 soulbound tokens. However, the contract deployer, `msg.sender`, would also join the party as a soulbound token that could create confusion to the users and the protocol.
+
+Consider having the function call in the constructor refactored as follows:
+
+[File: Escher.sol#L15-L67](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol#L15-L16)
+
+```
+    constructor() ERC1155("") {
+-        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
++        super._grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+```
+## CURATOR_ROLE in Escher.sol
+No default `CURATOR_ROLE` was assigned upon the contract deployment of `Escher.sol` despite this could separately be done outside the contract. 
+
+Consider having the following code line added to the [constructor](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol#L15-L17), serving also as an emergency measure by allowing the contract owner to assume the curator role when need be:
+
+```
+        _grantRole(CURATOR_ROLE, msg.sender);
+```
+Additionally, it is recommended implementing `addCurator()` in the contract that could look something as follows:
+
+```
+    function addCurator(address _account) public onlyRole(DEFAULT_ADMIN_ROLE) {
+        _grantRole(CURATOR_ROLE, _account);
+    }
+```
+## Inherited Calls to AccessControl.sol
+Throughout the code bases, it is noted that the protocol always skip the preliminary functions when making inherited calls to `AccessControl.sol`. For instance, it would call `_transferOwnership()` instead of `transferOwnership()`, `_grantRole()` instead of `grantRole()`, and `_revokeRole()` instead of `revokeRole()`.
+
+While it is understandable that the adoption of `_grantRole()` would free up more roles other than the admin to carry out their respective duties, care must be taken for the other two calls.
+
+As earlier explained at the top of this report, `_transferOwnership()` skips zero address check which is duly acknowledged as outside of the scope of this contest.
+
+[`_revokeRole()`](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher.sol#L68), as the name of the function suggests, could sometimes trick developer into thinking an admin modifier would have been taken care of at `AccessControl.sol` when it is not. It is recommended using `revokeRole()` as a double measure to better prevent this critical call from being invoked by anyone.  
+
+## `_safeMint()` Over `_mint()` for ERC721 Tokens
+Consider using `_safeMint()` instead of `_mint()` since the former would determine whether or not the recipient is a contract that has a logic implemented to support ERC721 standard via `onERC721Received()`. This is to prevent any token from getting trapped in a smart contract that cannot feature future token transfer.
+
+Here is the instance entailed:
+
+[File: Escher721.sol#L52](https://github.com/code-423n4/2022-12-escher/blob/main/src/Escher721.sol#L52)
+
+```
+        _mint(to, tokenId);
 ```
