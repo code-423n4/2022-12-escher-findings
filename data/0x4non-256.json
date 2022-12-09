@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0x4non",
+  "risk": "2",
+  "title": " Potential denial of service (DoS) attack if `feeReceiver()` or `saleReceiver` rejects ether",
+  "issueId": 256,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/256"
+}
