@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "jadezti",
+  "risk": "3",
+  "title": "A large `sale.dropPerSecond` may result in LPDA auction fail",
+  "issueId": 234,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/234"
+}
