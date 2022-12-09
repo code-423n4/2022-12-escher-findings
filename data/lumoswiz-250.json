@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "lumoswiz",
+  "risk": "2",
+  "title": "FixedPriceFactory, OpenEditionFactory: potential loss of funds upon sale end if saleReceiver set to address(0)",
+  "issueId": 250,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/250"
+}
