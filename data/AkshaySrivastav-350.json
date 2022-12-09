@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "AkshaySrivastav",
+  "risk": "3",
+  "title": "`OpenEdition.buy` can revert due to interger overflow.",
+  "issueId": 350,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/350"
+}
