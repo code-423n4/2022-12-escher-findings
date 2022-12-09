@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "gzeon",
+  "risk": "3",
+  "title": "Value stuck in LPDA minter if sales never complete",
+  "issueId": 423,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/423"
+}
