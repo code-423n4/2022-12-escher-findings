@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0xA5DF",
+  "risk": "2",
+  "title": "Centralization risk: Protocol owners can prevent withdrawing of sales revenue by reverting on protocol fee transfer",
+  "issueId": 530,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/530"
+}
