@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "0xfuje",
+  "risk": "3",
+  "title": "Possible malicious _uri in initialize() of Escher721.sol",
+  "issueId": 538,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/538"
+}
