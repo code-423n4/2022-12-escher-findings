@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "reassor",
+  "risk": "3",
+  "title": "Denial of Service - FixedPrice and LPDA are missing claim funds functionality",
+  "issueId": 228,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/228"
+}
