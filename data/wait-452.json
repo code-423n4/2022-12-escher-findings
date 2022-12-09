@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "wait",
+  "risk": "2",
+  "title": "ETH in FixedPrice contract will be locked if seller sets too larger finalId than currentId accidentally",
+  "issueId": 452,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/452"
+}
