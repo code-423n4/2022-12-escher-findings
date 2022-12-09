@@ -1,14 +1,32 @@
-# solidity pragma versioning
+# Summary
+
+## Non-Critical Issues List
+|Number   |issue   |context|
+|---|---|---|
+|[N-01]   |solidity pragma versioning   |all contracts|
+|[N-02]   |remove unneccessari function / set variable private   |1  |
+|[N-03]   |constants should be defined rather than using magic numbers   |4 |
+|[N-04]   |missing checks for address that should not be address(0)   |5 |
+|[N-06]   |add missing documentation   |18 |
+|[N-07]   |typos   |1 |
+
+
+## Low Risk Issues List
+|Number   |issue   |context|
+|---|---|---|
+|[L-01]   |no transfer ownership pattern (two-phase ownsership transfer)   | |
+
+## [N-01] solidity pragma versioning
 At the moment ^0.8.17 is used for all contracts. This can be changed to 0.8.17 as they're not libraries and it's better to use a fixed version for the deployment.
 
-# remove unneccessari function / set variable private
+## [N-02] remove unneccessari function / set variable private
 
 ```solidity
 File: src/uris/Base.sol
 8:     string public baseURI; // @audit set private or remove function tokenURI - redundant
 ```
 
-# constants should be defined rather than using magic numbers
+# [N-03] constants should be defined rather than using magic numbers
 It is bad practice to use numbers directly in code without explanation.
 
 ```solidity
@@ -25,7 +43,7 @@ File: src/uris/Generative.sol
 24:         seedBase = keccak256(abi.encodePacked(numb, blockhash(numb - 1), time, (time % 200) + 1)); // @audit constants should be defined rather than using magic numbers
 ```
 
-# missing checks for address that should not be address(0)
+## [N-04] missing checks for address that should not be address(0)
 Some addresses should be checked before deployment as they're not changeable after the deployment and user (creator) funds can be lost
 ```solidity
 File: src/minters/FixedPriceFactory.sol
@@ -57,10 +75,7 @@ File: src/minters/OpenEditionFactory.sol
 
 ```
 
-# no transfer ownership pattern (two-phase ownsership transfer)
-Recommend using Ownable2Step from OpenZeppelin for a two step process where the owner or admin nominates an account and the nominated account needs to call an acceptOwnership() function for the transfer of ownership to fully succeed. This ensures the nominated EOA account is a valid and active account.
-
-# add missing documentation
+## [N-06]  add missing documentation
 The contracts are very well documented and clear to read. Still it misses some documentation that could be added for a even better developer experience.
 Functions missing @param (or wrong param mentioned) / @return / @notice or is missing complete
 
@@ -140,7 +155,7 @@ File: src/Escher721Factory.sol
 27:     function createContract(
 ```
 
-# typos
+## [N-07] typos
 There is a typo in the comments.
 
 ```solidity
@@ -150,3 +165,6 @@ File: src/Escher.sol
 21:     function setURI(string memory _newuri) public onlyRole(DEFAULT_ADMIN_ROLE) {
 ```
 
+
+## [L-01] no transfer ownership pattern (two-phase ownsership transfer)
+Recommend using Ownable2Step from OpenZeppelin for a two step process where the owner or admin nominates an account and the nominated account needs to call an acceptOwnership() function for the transfer of ownership to fully succeed. This ensures the nominated EOA account is a valid and active account.
