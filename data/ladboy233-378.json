@@ -1,0 +1,8 @@
+{
+  "contest": 189,
+  "handle": "ladboy233",
+  "risk": "2",
+  "title": "Escher.sol admin can mint unlimited NFT and set high royalty fee to rug the buyer because there is no upper bound NFT supply cap.",
+  "issueId": 378,
+  "issueUrl": "https://github.com/code-423n4/2022-12-escher-findings/issues/378"
+}
